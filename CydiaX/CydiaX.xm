@@ -1,0 +1,41 @@
+#import <UIKit/UIKit.h>
+
+#define kCydiaTabBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height > 20.0 ? 83.0 : 49.0)
+#define kCydiaIndicatorHeight (34.0)
+
+static BOOL cyx_isiPhoneX() {
+    static BOOL checkiPhoneX = NO;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if (@available(iOS 8.0, *)) {
+            if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone && UIScreen.mainScreen.nativeBounds.size.height == 2436)  {
+                checkiPhoneX = YES;
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+    });
+    return checkiPhoneX;
+}
+
+%hook CydiaTabBarController
+
+- (void)viewWillLayoutSubviews {
+    %orig;
+    if (@available(iOS 11.0, *)) {
+        if (cyx_isiPhoneX()) {
+            UITabBarController *tab = (UITabBarController *)self;
+            CGRect tabFrame = tab.tabBar.frame;
+            tabFrame.size.height = kCydiaTabBarHeight;
+            tabFrame.origin.y = tab.view.frame.size.height - kCydiaTabBarHeight;
+            tab.tabBar.frame = tabFrame;
+            for (UITabBarItem* item in tab.tabBar.items) {
+                [item setImageInsets:UIEdgeInsetsMake(-kCydiaIndicatorHeight, 0, 0, 0)];
+                [item setTitlePositionAdjustment:UIOffsetMake(0, -kCydiaIndicatorHeight)];
+            }
+        }
+    }
+}
+
+%end
+
