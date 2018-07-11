@@ -1,17 +1,10 @@
 Package: com.darwindev.CydiaX
 Name: CydiaX
 Version: 0.1-1
-Description: 
-Section: System
-Depends: firmware (>= 5.0), mobilesubstrate
-Conflicts: 
-Replaces: 
-Priority: optional
+Description: Saurik loves money.
+Section: Tweak
+Depends: firmware (>= 11.0), mobilesubstrate
 Architecture: iphoneos-arm
-Author: Zheng
-dev: 
-Homepage: 
-Depiction: 
-Maintainer: 
-Icon: 
-
+Author: Zheng <i.82@me.com>
+Homepage: https://github.com/Lessica/CydiaX
+Maintainer: Zheng <i.82@me.com>

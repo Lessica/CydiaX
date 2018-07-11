@@ -18,13 +18,9 @@ static BOOL cyx_isiPhoneX() {
     return checkiPhoneX;
 }
 
-%hook CydiaTabBarController
-
-- (void)viewWillLayoutSubviews {
-    %orig;
+static void cyx_fixTabBarPosition(UITabBarController *tab) {
     if (@available(iOS 11.0, *)) {
         if (cyx_isiPhoneX()) {
-            UITabBarController *tab = (UITabBarController *)self;
             CGRect tabFrame = tab.tabBar.frame;
             tabFrame.size.height = kCydiaTabBarHeight;
             tabFrame.origin.y = tab.view.frame.size.height - kCydiaTabBarHeight;
@@ -35,6 +31,64 @@ static BOOL cyx_isiPhoneX() {
             }
         }
     }
+}
+
+%hook CydiaTabBarController
+
+- (void)viewDidLoad {
+    %orig;
+    cyx_fixTabBarPosition((UITabBarController *)self);
+}
+
+- (void)viewWillLayoutSubviews {
+    %orig;
+    cyx_fixTabBarPosition((UITabBarController *)self);
+}
+
+%end
+
+@interface SBApplication : NSObject
+
+- (NSString *)bundleIdentifier;
+- (bool)_supportsApplicationType:(int)type;
+- (bool)classicAppScaled;
+
+@end
+
+static NSString * const kCydiaBundleIdentifier = @"com.saurik.Cydia";
+
+%hook SBApplication
+
+- (BOOL)supportsApplicationType:(int)type {
+    if ([self.bundleIdentifier isEqualToString:kCydiaBundleIdentifier]) {
+        return YES;
+    }
+    return %orig;
+}
+
+- (NSInteger)_classicModeFromSplashBoard {
+    if ([self.bundleIdentifier isEqualToString:kCydiaBundleIdentifier]) {
+        return 2;
+    }
+    return %orig;
+}
+
+- (BOOL)_supportsApplicationType:(int)type {
+    if ([self.bundleIdentifier isEqualToString:kCydiaBundleIdentifier]) {
+        return YES;
+    }
+    return %orig;
+}
+
+- (BOOL)classicAppScaled {
+    return %orig;
+}
+
+- (bool)isClassic {
+    if ([self.bundleIdentifier isEqualToString:kCydiaBundleIdentifier]) {
+        return NO;
+    }
+    return %orig;
 }
 
 %end

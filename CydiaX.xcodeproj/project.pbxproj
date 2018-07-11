@@ -12,19 +12,21 @@
 		0F1867B120F1B8D3004E71C4 /* CydiaX.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F1867B020F1B8D3004E71C4 /* CydiaX.mm */; };
 		0F1867BC20F1BB0D004E71C4 /* substrate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F1867BB20F1BB0D004E71C4 /* substrate.h */; };
 		0F1867BE20F1BC27004E71C4 /* CydiaSubstrate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1867BD20F1BC27004E71C4 /* CydiaSubstrate.framework */; };
+		0F787E5A20F5A5E70004A340 /* CydiaX.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F787E5620F5A5E70004A340 /* CydiaX.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0F1867A020F1B8D3004E71C4 /* CydiaX.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = CydiaX.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F1867A320F1B8D3004E71C4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0F1867A520F1B8D3004E71C4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		0F1867AC20F1B8D3004E71C4 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
 		0F1867AE20F1B8D3004E71C4 /* CydiaX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CydiaX-Prefix.pch"; sourceTree = "<group>"; };
 		0F1867AF20F1B8D3004E71C4 /* CydiaX.xm */ = {isa = PBXFileReference; lastKnownFileType = text; path = CydiaX.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		0F1867B020F1B8D3004E71C4 /* CydiaX.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CydiaX.mm; sourceTree = "<group>"; };
-		0F1867B520F1B8D3004E71C4 /* CydiaX.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = CydiaX.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/CydiaX.plist; sourceTree = "<group>"; };
 		0F1867BB20F1BB0D004E71C4 /* substrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = substrate.h; sourceTree = "<group>"; };
 		0F1867BD20F1BC27004E71C4 /* CydiaSubstrate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CydiaSubstrate.framework; path = ../../../../opt/MonkeyDev/Frameworks/CydiaSubstrate.framework; sourceTree = "<group>"; };
+		0F787E5220F5A5E70004A340 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		0F787E5620F5A5E70004A340 /* CydiaX.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = CydiaX.dylib; sourceTree = "<group>"; };
+		0F787E5720F5A5E70004A340 /* CydiaX.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CydiaX.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F787E5A20F5A5E70004A340 /* CydiaX.dylib in Frameworks */,
 				0F1867BE20F1BC27004E71C4 /* CydiaSubstrate.framework in Frameworks */,
 				0F1867A420F1B8D3004E71C4 /* UIKit.framework in Frameworks */,
 				0F1867A620F1B8D3004E71C4 /* Foundation.framework in Frameworks */,
@@ -74,27 +77,10 @@
 				0F1867BB20F1BB0D004E71C4 /* substrate.h */,
 				0F1867AF20F1B8D3004E71C4 /* CydiaX.xm */,
 				0F1867B020F1B8D3004E71C4 /* CydiaX.mm */,
-				0F1867AA20F1B8D3004E71C4 /* Package */,
+				0F787E5020F5A5E70004A340 /* Package */,
 				0F1867AD20F1B8D3004E71C4 /* Supporting Files */,
 			);
 			path = CydiaX;
-			sourceTree = "<group>";
-		};
-		0F1867AA20F1B8D3004E71C4 /* Package */ = {
-			isa = PBXGroup;
-			children = (
-				0F1867AB20F1B8D3004E71C4 /* DEBIAN */,
-				0F1867B220F1B8D3004E71C4 /* Library */,
-			);
-			name = Package;
-			sourceTree = "<group>";
-		};
-		0F1867AB20F1B8D3004E71C4 /* DEBIAN */ = {
-			isa = PBXGroup;
-			children = (
-				0F1867AC20F1B8D3004E71C4 /* control */,
-			);
-			name = DEBIAN;
 			sourceTree = "<group>";
 		};
 		0F1867AD20F1B8D3004E71C4 /* Supporting Files */ = {
@@ -105,28 +91,46 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0F1867B220F1B8D3004E71C4 /* Library */ = {
+		0F787E5020F5A5E70004A340 /* Package */ = {
 			isa = PBXGroup;
 			children = (
-				0F1867B320F1B8D3004E71C4 /* MobileSubstrate */,
+				0F787E5120F5A5E70004A340 /* DEBIAN */,
+				0F787E5320F5A5E70004A340 /* Library */,
 			);
-			name = Library;
+			path = Package;
 			sourceTree = "<group>";
 		};
-		0F1867B320F1B8D3004E71C4 /* MobileSubstrate */ = {
+		0F787E5120F5A5E70004A340 /* DEBIAN */ = {
 			isa = PBXGroup;
 			children = (
-				0F1867B420F1B8D3004E71C4 /* DynamicLibraries */,
+				0F787E5220F5A5E70004A340 /* control */,
 			);
-			name = MobileSubstrate;
+			path = DEBIAN;
 			sourceTree = "<group>";
 		};
-		0F1867B420F1B8D3004E71C4 /* DynamicLibraries */ = {
+		0F787E5320F5A5E70004A340 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				0F1867B520F1B8D3004E71C4 /* CydiaX.plist */,
+				0F787E5420F5A5E70004A340 /* MobileSubstrate */,
 			);
-			name = DynamicLibraries;
+			path = Library;
+			sourceTree = "<group>";
+		};
+		0F787E5420F5A5E70004A340 /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				0F787E5520F5A5E70004A340 /* DynamicLibraries */,
+			);
+			path = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		0F787E5520F5A5E70004A340 /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				0F787E5620F5A5E70004A340 /* CydiaX.dylib */,
+				0F787E5720F5A5E70004A340 /* CydiaX.plist */,
+			);
+			path = DynamicLibraries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,6 +315,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CydiaX/CydiaX-Prefix.pch";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CydiaX/Package/Library/MobileSubstrate/DynamicLibraries",
+				);
 				MonkeyDevBuildPackageOnAnyBuild = NO;
 				MonkeyDevClearUiCacheOnInstall = NO;
 				MonkeyDevCopyOnBuild = NO;
@@ -343,6 +351,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CydiaX/CydiaX-Prefix.pch";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CydiaX/Package/Library/MobileSubstrate/DynamicLibraries",
+				);
 				MonkeyDevBuildPackageOnAnyBuild = NO;
 				MonkeyDevClearUiCacheOnInstall = NO;
 				MonkeyDevCopyOnBuild = NO;
